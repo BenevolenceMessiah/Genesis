@@ -58,14 +58,12 @@ Genesis 是专为 *机器人/嵌入式 AI/物理 AI* 应用设计的通用物理
 ## 快速入门
 
 ### 安装
+首先按照[官方指南](https://pytorch.org/get-started/locally/)安装 PyTorch。
 
-Genesis 可通过 PyPI 获取：
-
+然后可通过 PyPI 安装Genesis：
 ```bash
 pip install genesis-world  # 需要 Python >=3.9
 ```
-
-同时需要按照[官方指南](https://pytorch.org/get-started/locally/)安装 PyTorch。
 
 ### Docker 支持
 
@@ -91,6 +89,7 @@ genesis
 
 - [英文文档](https://genesis-world.readthedocs.io/en/latest/user_guide/index.html)
 - [中文文档](https://genesis-world.readthedocs.io/zh-cn/latest/user_guide/index.html)
+- [日文文档](https://genesis-world.readthedocs.io/ja/latest/user_guide/index.html)
 
 ## 参与贡献
 
