@@ -904,7 +904,7 @@ class RigidEntity(Entity):
             quats = [None] * n_links
             rot_mask = [False, False, False]
         elif len(quats) != n_links:
-            gs.raise_exception("Accepting only `quatss` with length equal to `links` or empty list.")
+            gs.raise_exception("Accepting only `quats` with length equal to `links` or empty list.")
 
         link_pos_mask = []
         link_rot_mask = []
@@ -1634,6 +1634,25 @@ class RigidEntity(Entity):
             The angular velocity of all the entity's links.
         """
         return self._solver.get_links_ang(np.arange(self.link_start, self.link_end), envs_idx)
+
+    @gs.assert_built
+    def get_links_acc(self, ls_idx_local=None, envs_idx=None):
+        """
+        Returns linear acceleration of the specified entity's links. (Mimicking accelerometer)
+
+        Parameters
+        ----------
+        envs_idx : None | array_like, optional
+            The indices of the environments. If None, all environments will be considered. Defaults to None.
+        ls_idx_local : array_like
+            The indices of the links.
+
+        Returns
+        -------
+        acc : torch.Tensor, shape (n_links, 3) or (n_envs, n_links, 3)
+            The linear acceleration of the specified entity's links.
+        """
+        return self._solver.get_links_acc(self._get_ls_idx(ls_idx_local), envs_idx)
 
     @gs.assert_built
     def get_links_inertial_mass(self, ls_idx_local=None, envs_idx=None):
